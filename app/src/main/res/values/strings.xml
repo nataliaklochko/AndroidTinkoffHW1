@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">hw1</string>
+    <string name="open_secondactivity">Open Second Activity</string>
+    <string name="secondactivity">Second Activity</string>
+    <string name="firstactivity">First Activity</string>
+    <string name="callintentserive">Send Name</string>
+    <string name="hello">Greeting</string>
+    <string name="name">Name</string>
+</resources>
