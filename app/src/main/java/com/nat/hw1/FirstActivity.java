@@ -1,6 +1,9 @@
 package com.nat.hw1;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +19,7 @@ public class FirstActivity extends AppCompatActivity {
     private Button openSecondActivityBtn;
     private TextView helloTextView;
     protected static Integer SECOND_ACTIVITY_REQUEST = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +41,6 @@ public class FirstActivity extends AppCompatActivity {
         openSecondActivityBtn.setOnClickListener(onClickOpenSecondActivity);
 
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

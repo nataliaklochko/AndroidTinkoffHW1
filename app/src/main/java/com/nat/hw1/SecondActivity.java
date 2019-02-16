@@ -1,9 +1,11 @@
 package com.nat.hw1;
 
+import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +18,7 @@ import android.widget.EditText;
 public class SecondActivity extends AppCompatActivity {
 
     private String TAG = "HELLO SecondActivity";
+    private static Integer READ_CONTACTS_REQUEST = 2;
 
     private Button callIntentService;
     private EditText nameText;
@@ -26,9 +29,12 @@ public class SecondActivity extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
             Log.i(TAG,"helloReceiver onReceive()");
+
+
             String greeting = intent.getStringExtra(Intent.EXTRA_TEXT);
 
             Intent helloIntent = new Intent();
+
             helloIntent.putExtra(Intent.EXTRA_TEXT, greeting);
             sendResult(helloIntent);
         }
@@ -64,6 +70,12 @@ public class SecondActivity extends AppCompatActivity {
             }
         };
         callIntentService.setOnClickListener(onClickCallIntentService);
+
+        ActivityCompat.requestPermissions(
+                SecondActivity.this,
+                new String[]{Manifest.permission.READ_CONTACTS},
+                READ_CONTACTS_REQUEST
+        );
     }
 
 
